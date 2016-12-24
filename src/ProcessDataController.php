@@ -19,11 +19,13 @@ class ProcessDataController implements ControllerProviderInterface
     	
         $controllers = $app['controllers_factory'];
 
-        $controllers->get('/', function (Application $app) {
-          
-          return "Process Controller";
-        });  
-
+        /*
+        * Post method for process a json with parameters
+        *
+        * @param $data json string via post body
+        *
+        * @return json string
+        */
         $controllers->post('/', function (Request $request, Application $app) {
             
             $data = json_decode($request->getContent(), true);
@@ -92,6 +94,11 @@ class ProcessDataController implements ControllerProviderInterface
         	return $app->json("message: ".$message, 200);
         });
 
+        /*
+        * Get method for retrieve data from SNAIL_LOG table
+        *
+        * @return void
+        */
         $controllers->get('/getCallsTable', function (Application $app, Request $request) {
                       
           if ($request->isXmlHttpRequest()) {
@@ -114,6 +121,10 @@ class ProcessDataController implements ControllerProviderInterface
 
 }
 
+/*
+* Class for provide data to getCallsTable method
+*
+*/
 class DataSource {
     
     public function __construct($app) {
