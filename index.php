@@ -33,7 +33,7 @@ $app->get('/', function () use ($app) {
 });
 
 
-$app->mount('/processData', new TestSnail\Test\ProcessDataController($app));
+$app->mount('/snail', new TestSnail\Test\ProcessDataController($app));
 
 $app->run();
 

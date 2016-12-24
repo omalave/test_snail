@@ -44,7 +44,7 @@
     },
             "bProcessing": true,
             "bServerSide": true,
-            "sAjaxSource": "processData/getCallsTable"
+            "sAjaxSource": "snail"
     }
     );
 
@@ -64,7 +64,7 @@
         var dataSnail = { "h": h, "u": u, "d": d, "f": f };
         console.log(dataSnail);
         $.ajax({
-            url : "processData/",
+            url : "snail/",
             type: "POST",
             data: JSON.stringify(dataSnail),
             contentType: "application/json; charset=utf-8",

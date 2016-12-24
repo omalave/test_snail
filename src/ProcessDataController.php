@@ -99,7 +99,7 @@ class ProcessDataController implements ControllerProviderInterface
         *
         * @return void
         */
-        $controllers->get('/getCallsTable', function (Application $app, Request $request) {
+        $controllers->get('/', function (Application $app, Request $request) {
                       
           if ($request->isXmlHttpRequest()) {
 
