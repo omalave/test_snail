@@ -1,0 +1,16 @@
+
+	body {
+		margin-top: 20px;
+	}
+
+	#send {
+
+		display: none;
+	}
+
+	#gLogout {
+
+		padding-left: 15px;
+		display: none;
+	}
+	

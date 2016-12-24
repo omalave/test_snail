@@ -80,12 +80,12 @@ class ProcessDataController implements ControllerProviderInterface
 	  		}
 
             $app['db']->insert('SNAIL_LOG', array(
-				'H'      => $data["h"],
-				'D'      => $data["d"],
-				'U'      => $data["u"],
-				'F'      => $data["f"],
-				'result' => $message,
-				'DATE'   => date("Y-m-d H:i:s")
+				'H'        => $data["h"],
+				'D'        => $data["d"],
+				'U'        => $data["u"],
+                'F'        => $data["f"],
+				'result'   => $message,
+				'DATE'     => date("Y-m-d H:i:s")
             ));
 
 
@@ -214,6 +214,7 @@ class DataSource {
                 }
 
             }
+            
             $output['aaData'][] = $row;
         }
 
