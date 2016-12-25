@@ -63,7 +63,6 @@
         }
 
         var dataSnail = { "h": h, "u": u, "d": d, "f": f, "token": token };
-        console.log(dataSnail);
         $.ajax({
             url : "snail/",
             type: "POST",
