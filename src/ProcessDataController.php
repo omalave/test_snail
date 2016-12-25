@@ -36,10 +36,15 @@ class ProcessDataController implements ControllerProviderInterface
             }
 
             if (!empty($data['token'])) {
+
                 if (!hash_equals($app['session']->get('token'), $data['token'])) {
 
                     return $app->json("Unauthorized: Wrong Token", 401);
                 }
+                
+            } else {
+
+                return $app->json("Unauthorized: Wrong Token", 401);
             }
 
             $h = $data["h"];
