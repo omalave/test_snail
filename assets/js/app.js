@@ -54,6 +54,7 @@
         var u = $("#u").val();
         var d = $("#d").val();
         var f = $("#f").val();
+        var token = $("#token").val();
 
         if (!h || !u || !d || !f) {
 
@@ -61,7 +62,7 @@
             return false;
         }
 
-        var dataSnail = { "h": h, "u": u, "d": d, "f": f };
+        var dataSnail = { "h": h, "u": u, "d": d, "f": f, "token": token };
         console.log(dataSnail);
         $.ajax({
             url : "snail/",

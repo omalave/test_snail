@@ -27,9 +27,19 @@ $app->register(
     )
 );
 
+$app->register(new Silex\Provider\SessionServiceProvider());
+
 $app->get('/', function () use ($app) {
 
-	return $app['twig']->render('home.view.twig');
+
+    if (empty($app['session']->get('token'))) {
+        
+        $app['session']->set('token', bin2hex(random_bytes(32)));
+    }
+
+    $token = $app['session']->get('token');
+
+	return $app['twig']->render('home.view.twig', array('token' => $token ));
 });
 
 

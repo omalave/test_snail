@@ -27,12 +27,19 @@ class ProcessDataController implements ControllerProviderInterface
         * @return json string
         */
         $controllers->post('/', function (Request $request, Application $app) {
-            
+
             $data = json_decode($request->getContent(), true);
 
             if (!$data) {
             	
         		return $app->json("Bad Request: Missing Parameters", 400);
+            }
+
+            if (!empty($data['token'])) {
+                if (!hash_equals($app['session']->get('token'), $data['token'])) {
+
+                    return $app->json("Unauthorized: Wrong Token", 401);
+                }
             }
 
             $h = $data["h"];
